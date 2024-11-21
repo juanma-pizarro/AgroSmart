@@ -10,21 +10,29 @@ def home(request):
     return render(request, 'home/index.html', {'products':products})
 
 def register(request):
+    roles = Role.objects.all()
     if request.method=='POST':
         first_name=request.POST['first_name']
         last_name=request.POST['last_name']
         email = request.POST['email']
         username=email.split('@')[0] 
         password = request.POST['pass']
-        user = User.objects.create_user(username=username,password=password,email=email,first_name=first_name,last_name=last_name)
-        
+        role_id = request.POST.get('role')
+
+
+        user = User.objects.create_user(username=username,
+            password=password,
+            email=email,
+            first_name=first_name,
+            last_name=last_name)
+
         if user is not None:
             return redirect('login')
         else:
             messages={
                 'error':'Datos invalidos'
             }
-            return render(request,'register/index.html',messages)
+            return render(request,'register/index.html',{'roles': roles, 'messages': messages})
         
     return render(request,'register/index.html')
 
@@ -49,9 +57,12 @@ def logoutValidation(request):
     logout(request)
     return redirect('login')
 
+
+
+
 def inventory(request):
     return render(request, 'inventory/index.html')
 
-def product(request, id):
-    product = Product.objects.get(id=id)
-    return render(request,'product/index.html',{'product':product})
+def product(request):#id
+    #product = Product.objects.get(id=id)
+    return render(request,'product/index.html',)#{'product':product})
