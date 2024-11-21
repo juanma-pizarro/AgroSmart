@@ -49,9 +49,12 @@ def logoutValidation(request):
     logout(request)
     return redirect('login')
 
+
+
+
 def inventory(request):
     return render(request, 'inventory/index.html')
 
-def product(request, id):
-    product = Product.objects.get(id=id)
-    return render(request,'product/index.html',{'product':product})
+def product(request):#id
+    #product = Product.objects.get(id=id)
+    return render(request,'product/index.html',)#{'product':product})
