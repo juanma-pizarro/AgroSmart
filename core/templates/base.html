@@ -54,18 +54,13 @@
                     <ul class="dropdown-menu">
                         <li>
                             <button class="dropdown-item d-block text-primary" type="button">
-                                <a href="#" class='text-decoration-none text-dark'><i class="fa-solid fa-user"></i>perfil</a>
-                            </button>
-                        </li>
-                        <li>
-                            <button class="dropdown-item d-block text-primary" type="button">
-                                <a href="#" class='text-decoration-none text-dark'> <i class="fa-solid fa-scroll"></i></a>
+                                <a href="#" class='text-decoration-none text-dark'><i class="fa-solid fa-user"></i> Perfil</a>
                             </button>
                         </li>
                         <li>
                             <button class="dropdown-item d-block text-danger" type="button">
-                                <a class="text-danger fw-bold text-decoration-none" href="#"><i
-                                        class="fa-solid fa-power-off"></i> Cerra Sesion</a>
+                                <a class="text-danger fw-bold text-decoration-none" href="{% url 'logout' %}"><i
+                                        class="fa-solid fa-power-off"></i> Cerrar Sesion</a>
                             </button>
                         </li>
                     </ul>
